@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title> Internal - Le Doan Quoc Khanh</title>
+    <style>
+        p{
+            font-family: tahoma;
+            font-size: 25pt;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p> Dai hoc quoc gia TPHCM </p>
+    <p> Truong Dai hoc Kinh Te - Luat </p>
+    <p> Khoa he thong thong tin </p>
+</body>
+</html>

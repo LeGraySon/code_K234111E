@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internal Avatar - Le Doan Quoc Khanh</title>
+    <style>
+        p {
+            font-family: tahoma;
+            font-size: 25pt;
+            color: blue;
+        }
+        img {
+            transform: rotate(5deg); 
+            margin: 10px;
+            width: 150px; 
+        }
+    </style>
+</head>
+<body>
+    <img src="images/demo1.png" >
+    <img src="images/UEL_Logo ban quyen_TP4-36.png" >
+
+    <p>Dai hoc quoc gia TPHCM</p>
+    <p>Truong Dai hoc Kinh Te - Luat</p>
+    <p>Khoa he thong thong tin</p>
+</body>
+</html>
