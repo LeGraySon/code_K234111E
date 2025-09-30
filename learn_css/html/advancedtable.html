@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>advanced table- Le Doan Quoc Khanh</title>
+        <style>
+            tbody tr:hover 
+            {
+                background-color: yellow;
+                font-style: italic;
+                cursor: pointer;
+            }
+            table, tr, th, td
+            {
+                border: 1px;
+                border-style: solid;
+            }
+            thead
+            {
+                background-color: purple;
+                color: white;
+                font-weight: bold;
+            }
+            tbody tr:nth-child(2n+1)
+            {
+                background-color: aqua;
+            }
+            tbody tr:nth-child(2n)
+            {
+                background-color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>P01</td>
+                    <td>Coca</td>
+                    <td>$15</td>
+                </tr>
+                <tr>
+                    <td>P02</td>
+                    <td>Pepsi</td>
+                    <td>$17</td>
+                </tr>
+                <tr>
+                    <td>P03</td>
+                    <td>Fanta</td>
+                    <td>$20</td>
+                </tr>
+                 <tr>
+                    <td>P04</td>
+                    <td>Sting</td>
+                    <td>$25</td>
+                </tr>
+                 <tr>
+                    <td>P05</td>
+                    <td>7up</td>
+                    <td>$25</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
