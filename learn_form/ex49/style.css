@@ -1,0 +1,106 @@
+/* ===== Base & panel (giống hình) ===== */
+* { box-sizing: border-box; }
+html, body {
+  font-family: "Times New Roman", Georgia, serif;
+  background: #ffffff;
+  color: #202020;
+}
+.panel {
+  width: 700px;
+  margin: 24px auto;
+  background: #CCFFFF;               /* nền xanh nhạt y hình */
+  border: 2px solid #9933FF;         /* viền tím */
+  padding: 18px 20px 26px;
+}
+.panel h1 {
+  margin: 0 0 8px;
+  font-size: 26px;
+  color: #d20000;                    /* tiêu đề đỏ */
+  font-weight: 700;
+}
+.panel hr {
+  height: 2px;
+  background: #8f8f8f;               /* gạch xám dưới tiêu đề */
+  border: none;
+  margin: 10px 0 16px;
+}
+
+/* ===== Sections ===== */
+.block { margin-bottom: 16px; }
+.q {
+  font-weight: 700;
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+/* 2 cột như ảnh */
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 28px;
+  max-width: 560px;
+}
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.25;
+  font-size: 15px;
+}
+
+/* radio xanh dương, checkbox xanh lá như ảnh (trình duyệt mới hỗ trợ) */
+input[type="radio"]    { accent-color: #1E90FF; }
+input[type="checkbox"] { accent-color: #19a44a; }
+
+/* Hàng ngày tháng */
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.date-row input[type="text"]{
+  width: 190px;
+  padding: 6px 8px;
+  border: 1px solid #999;
+  background: #fff;
+  font-size: 14px;
+}
+.date-row .to { font-weight: 700; }
+
+/* Ô keywords full chiều ngang */
+.full{
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #999;
+  background: #fff;
+  font-size: 14px;
+}
+
+/* ===== Hàng icon Search / Help / Cancel ===== */
+.actions{
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;                         /* khoảng cách như ảnh */
+  padding-top: 8px;
+}
+.act{
+  background: transparent;
+  border: 0;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+}
+.act img{
+  width: 44px;                       /* chỉnh cho khớp ảnh bạn có */
+  height: 44px;
+  display: block;
+  margin: 0 auto 6px;
+}
+.label{
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+}
+.label.search{ color:#0fae32; }      /* Search màu xanh lá */
+.label.help  { color:#1e3cff; }      /* Help màu xanh dương/ tím */
+.label.cancel{ color:#e30000; }      /* Cancel màu đỏ */
