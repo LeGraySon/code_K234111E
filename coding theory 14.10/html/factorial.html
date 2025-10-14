@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Factorial - Lê Đoàn Quốc Khánh</title>
+    <script>
+      function calc_factorial(n) {
+        n = parseInt(n);
+        let fact = 1;
+        for (let i = 1; i <= n; i++) {
+          fact *= i;
+        }
+        return fact;
+      }
+
+      function use_factorial(n, result) {
+        let fact = calc_factorial(n);
+        result.innerText = fact;
+      }
+
+      function call_factorial() {
+        let n = document.myform.ip_n.value;
+        let result = calc_factorial(n);
+        document.getElementById("td_result").innerText = result;
+      }
+    </script>
+  </head>
+
+  <body>
+    <form name="myform">
+      <table border="1">
+        <tr>
+          <td>n:</td>
+          <td>
+            <input type="text" name="ip_n" id="ip_n" value="5"/>!
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button type="button" onclick="call_factorial()">Calc</button>
+            <button type="button" onclick="use_factorial(document.getElementById('ip_n').value, document.getElementById('td_result'))">Calc2</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Result:</td>
+          <td id="td_result"></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
