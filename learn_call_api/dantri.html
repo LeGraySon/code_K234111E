@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>API Dan Tri</title>
+        <script type="text/javascript">
+            function load_weathers()
+            {
+                var my_div = document.getElementById("my_div");
+                var api = "https://webapi.dantri.com.vn/misc";
+                var xhr = new XMLHttpRequest();
+                xhr.open("get", api, true);
+                xhr.send();
+                xhr.onreadystatechange = function()
+                {
+                    if (xhr.readyState == 4 && xhr.status == 200)
+                    {
+                        var string_json = xhr.responseText;
+                        my_div.innerText = string_json;
+                        var object_json = JSON.parse(string_json);
+                        var weathers = object_json.weathers;
+                        display_weathers(weathers);
+                    }
+                }
+            }
+
+            function display_weathers(weathers)
+            {
+                var weather_tbody = document.querySelector("table tbody");
+                for (var i = 0; i < weathers.length; i++)
+                {
+                    var weather = weathers[i];
+                    var tr = document.createElement("tr");
+                    var td_name = document.createElement("td");
+                    var td_temp = document.createElement("td");
+                    var td_status = document.createElement("td");
+                    var td_icon = document.createElement("td");
+
+                    var img_icon = document.createElement("img");
+                    var api_icon = "https://openweathermap.org/img/wn/" + weather.icon + "@2x.png";
+                    alert(api_icon);
+                    img_icon.setAttribute("src", api_icon);
+                    td_icon.appendChild(img_icon);
+
+                    td_name.innerText = weather.name;
+                    td_temp.innerText = weather.temperature;
+                    td_status.innerText = weather.clouds;
+
+                    tr.appendChild(td_name);
+                    tr.appendChild(td_temp);
+                    tr.appendChild(td_status);
+                    tr.appendChild(td_icon);
+
+                    weather_tbody.appendChild(tr);
+                }
+            }
+        </script>
+    </head>
+    <body onload="load_weathers()">
+        <div id="my_div" style="height: 100px; overflow-y: scroll; background-color: yellow;">
+        </div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Temperature</td>
+                    <td>Clouds</td>
+                    <td>Icon</td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tin Kinh Doanh - VnExpress</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #c10000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .container {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .news-item {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: box-shadow 0.3s ease;
+    }
+    .news-item:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .news-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #c10000;
+      text-decoration: none;
+    }
+    .news-title:hover {
+      text-decoration: underline;
+    }
+    .news-date {
+      font-size: 13px;
+      color: #777;
+      margin-top: 5px;
+    }
+    .news-desc {
+      margin-top: 12px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    @media (max-width: 600px) {
+      .news-title {
+        font-size: 18px;
+      }
+      .news-desc {
+        font-size: 14px;
+      }
+    }
+  </style>
+  <script>
+    function loadRSS() {
+      const api =
+        "https://api.allorigins.win/get?url=" +
+        encodeURIComponent("https://vnexpress.net/rss/kinh-doanh.rss");
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", api, true);
+      xhr.send();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(response.contents, "text/xml");
+          const items = xmlDoc.getElementsByTagName("item");
+          displayRSS(items);
+        }
+      };
+    }
+
+    function displayRSS(items) {
+      const container = document.getElementById("news-container");
+      for (let i = 0; i < items.length; i++) {
+        const title = items[i].getElementsByTagName("title")[0].textContent;
+        const link = items[i].getElementsByTagName("link")[0].textContent;
+        const pubDate = items[i].getElementsByTagName("pubDate")[0].textContent;
+        const description = items[i].getElementsByTagName("description")[0].textContent;
+
+        const div = document.createElement("div");
+        div.className = "news-item";
+
+        const a = document.createElement("a");
+        a.href = link;
+        a.target = "_blank";
+        a.className = "news-title";
+        a.innerText = title;
+
+        const date = document.createElement("div");
+        date.className = "news-date";
+        date.innerText = new Date(pubDate).toLocaleString("vi-VN");
+
+        const desc = document.createElement("div");
+        desc.className = "news-desc";
+        desc.innerHTML = description;
+
+        div.appendChild(a);
+        div.appendChild(date);
+        div.appendChild(desc);
+
+        container.appendChild(div);
+      }
+    }
+  </script>
+</head>
+<body onload="loadRSS()">
+  <header>Tin Kinh Doanh - VnExpress</header>
+  <div class="container" id="news-container">
+    <!-- Tin tức sẽ được hiển thị ở đây -->
+  </div>
+</body>
+</html>
